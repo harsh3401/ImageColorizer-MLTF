@@ -2,6 +2,8 @@ from flask import Flask, render_template
 import tensorflow
 
 app = Flask(__name__)
+MODEL_PATH = 'models/colorizer.h5'
+
 
 @app.route('/api/colorization')
 def colorize_image():
@@ -11,10 +13,11 @@ def colorize_image():
     except:
         return "Error", 500
 
+
 @app.route('/')
 def render_html():
     return render_template('index.html')
 
 
-if __name__=="__main__":
-    app.run(debug=True,port=8080)
+if __name__ == "__main__":
+    app.run(debug=True, port=8080)
