@@ -1,9 +1,9 @@
-{% extends "base.html" %} {% block content %}
+
 
 <h2>Image recolourizer</h2>
 
 <div>
-    <form id="upload-file" method="post" enctype="multipart/form-data">
+    <form id="upload-file" method="post" enctype="multipart/form-data" action="/api/colorization">
         <label for="imageUpload" class="upload-label">
             Choose...
         </label>
@@ -28,4 +28,3 @@
 
 </div>
 
-{% endblock %}
