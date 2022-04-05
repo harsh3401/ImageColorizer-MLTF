@@ -1,31 +1,141 @@
-{% extends "base.html" %} {% block content %}
+<!DOCTYPE html>
+<html>
 
-<h2>Image recolourizer</h2>
+<head>
+  <meta charset="utf-8">
+  <title>bwTOcolor</title>
 
-<div>
-    <form id="upload-file" method="post" enctype="multipart/form-data">
-        <label for="imageUpload" class="upload-label">
-            Choose...
-        </label>
-        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
-    </form>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
-    <div class="image-section" style="display:none;">
-        <div class="img-preview">
-            <div id="imagePreview">
-            </div>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/c3e755a1f3.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <section id="title">
+    <div class="container-fluid">
+      <!-- Nav Bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="">bwTOcolor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pricing">Convert</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#cta">Contact-Us</a>
+            </li>
+          </ul>
         </div>
-        <div>
-            <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
+      </nav>
+      <!-- Title -->
+      <div class="row">
+        <div class="col-lg-6 ">
+          <h1>Convert old black and white pictures into Colour pictures.</h1>
         </div>
+        <div class="col-lg-6 ">
+          <img src="{{ url_for('static',filename='images/colorization-example.png') }}" alt="iphone-mockup">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Features -->
+
+  <section id="features">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="feature-box col-lg-4 col-md-6 col-sm-12">
+          <i class="icon fas fa-check-circle fa-4x"></i>
+          <h3>Easy to use.</h3>
+          <p>So easy to use, since it is<br>user friendly.</p>
+        </div>
+
+        <div class="feature-box col-lg-4 col-md-6 col-sm-12">
+          <i class="icon fas fa-bullseye fa-4x"></i>
+          <h3>Accuracy</h3>
+          <p>Trying to provide the<br>quality output.</p>
+        </div>
+
+        <div class="feature-box col-lg-4 col-md-6 col-sm-12">
+          <i class="icon fas fa-heart fa-4x"></i>
+          <h3>Time Efficient</h3>
+          <p>It tries to colorize image <br>in a fraction of time.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="loader" style="display:none;"></div>
+  </section>
 
-    <h3 id="result">
-        <span> </span>
-    </h3>
+  <!-- convert -->
 
-</div>
+  <section id="pricing">
+    <h2>Convert old black and white image to coloured image</h2>
+    <p>To convert import your old black & white picture.</p>
+    <input type="file" id="myfile" name="myfile" class="ip-btn">
+    <button type="button" class="b btn btn-dark btn-lg ">convert</button>
+    <button type="button" class="b btn btn-dark btn-lg ">Download</button>
 
-{% endblock %}
+  </section>
+
+
+  <!-- Problem Statement -->
+
+  <section id="cta">
+
+    <h3>Problem Statement</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet sapien ante. Mauris venenatis mauris sit
+      amet congue aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+      Fusce fermentum ante ut pulvinar euismod. Sed nec magna in urna mattis maximus. Mauris vestibulum, lectus eu
+      pharetra tincidunt, mi est tincidunt odio, et commodo felis ex in est. Integer blandit quis tellus vel tempus.
+      Vestibulum facilisis, purus ultricies venenatis faucibus, nulla tortor ullamcorper turpis, in eleifend eros leo
+      sagittis ligula.</p>
+  </section>
+
+
+  <!-- Footer -->
+
+  <footer id="footer">
+
+    <p class="ficons"><i class="fab fa-twitter"></i></p>
+    <p class="ficons"><i class="fab fa-facebook-f"></i></p>
+    <p class="ficons"><i class="fab fa-instagram"></i></p>
+    <p class="ficons"><i class="fas fa-envelope"></i></p>
+    <p>© Copyright 2022 bwTOcolor<br />Isha Jain, Ishan Kulkarni, Harsh Jain, Samved.</p>
+
+  </footer>
+
+
+</body>
+
+</html>
