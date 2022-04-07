@@ -4,6 +4,7 @@ $(document).ready(function () {
   $(".loader").hide();
   $("#result").hide();
   $(".download").hide();
+  $("#upload").hide();
   // Upload Preview
   function readURL(input) {
     if (input.files && input.files[0]) {
@@ -50,6 +51,7 @@ $(document).ready(function () {
           $(".loader").hide();
           $(".download").show();
           $("#result").show();
+          $("#upload").show();
         }
       },
     });

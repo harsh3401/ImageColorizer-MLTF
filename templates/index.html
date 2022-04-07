@@ -4,7 +4,7 @@
 
 <div>
     <form id="upload-file" method="post" enctype="multipart/form-data">
-        <label for="imageUpload" class="upload-label">
+        <label for="imageUpload" class="btn btn-primary">
             Choose...
         </label>
         <input type="file" name="imageUpload" id="imageUpload" accept=".png, .jpg, .jpeg">
@@ -16,17 +16,18 @@
             </div>
         </div>
         <div>
-            <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
+            <button type="button" class="btn btn-primary btn-xl" id="btn-predict">Predict!</button>
         </div>
     </div>
 
     <div class="loader" style="display:none;"></div>
 
 
-<a class="b btn btn-dark btn-lg download" id="download"  style="display:none;" href="{{ url_for('.download') }}" download>Download</a>
+<a class="btn btn-primary btn-xl my-2 download" id="download"  style="display:none;" href="{{ url_for('.download') }}" download>Download</a>
 
 </div>
-<a class="b btn btn-dark btn-lg result" id="result" href="{{ url_for('.download') }}" target="_blank" >Preview Image</a>
+<a class="btn btn-primary btn-xl my-2 result " id="result" href="{{ url_for('.download') }}" target="_blank" >Preview Image</a>
+<a class="btn btn-primary btn-xl my-2 result " id="upload" href="{{ url_for('.render_html') }}" >Upload another image</a>
 {% endblock %}
 
 
