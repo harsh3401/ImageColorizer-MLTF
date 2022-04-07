@@ -7,6 +7,7 @@ matplotlib.use('agg')
 from matplotlib import pyplot as plt
 
 app = Flask(__name__)
+print(__path__)
 model = tensorflow.keras.models.load_model(f'{__path__[0]}/models/colorize_3.h5')
 pred_count=0
 
