@@ -7,7 +7,7 @@ matplotlib.use('agg')
 from matplotlib import pyplot as plt
 
 app = Flask(__name__)
-model = tensorflow.keras.models.load_model('./models/colorize_3.h5')
+model = tensorflow.keras.models.load_model(f'{__path__[0]}/models/colorize_3.h5')
 pred_count=0
 
 
@@ -26,12 +26,12 @@ def colorize_image():
     plt.imshow(single_image)
     plt.axis('off')
     pred_count+=1
-    plt.savefig(f'static/predictions/prediction{pred_count}.jpg')
+    plt.savefig(f'{__path__[0]}/static/predictions/prediction{pred_count}.jpg')
     return 'success'
 
 @app.route('/api/downloads/',methods=['GET'])
 def download():
-    path = f'static/predictions/prediction{pred_count}.jpg'
+    path = f'{__path__[0]}/static/predictions/prediction{pred_count}.jpg'
     return send_file(path, attachment_filename=f'predcited.jpg')
 
 @app.route('/')
@@ -39,5 +39,6 @@ def render_html():
     return render_template('index.html')
 
 
-if __name__ == "__main__":
-    app.run()
+def create_app():
+    return app
+
