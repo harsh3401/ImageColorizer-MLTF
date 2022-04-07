@@ -1,12 +1,15 @@
-from flask import Flask, render_template,request
+from flask import Flask, render_template,request, send_from_directory, send_file
 import tensorflow
 import numpy as np
 from PIL import Image
+import matplotlib
+matplotlib.use('agg')
 from matplotlib import pyplot as plt
-import cv2
+
 app = Flask(__name__)
-MODEL_PATH = 'models/colorizer.h5'
-model = tensorflow.keras.models.load_model('./models/colorizer.h5')
+model = tensorflow.keras.models.load_model('./models/colorize_3.h5')
+pred_count=0
+
 
 @app.route('/api/colorization',methods=['POST'])
 def colorize_image():
@@ -14,23 +17,22 @@ def colorize_image():
     image = np.double(
             Image.open(image).convert('L').resize((160, 160)) # image resizing,
         )
-    image = np.reshape(image,(1,160,160,1))
-
-    # image = cv2.resize(image,(160,160))
+    image = np.stack((image,)*3, axis=-1)
+    global pred_count
+    image = np.reshape(image,(1,160,160,3))
     image = image/255.0
     output_image = model.predict(image)
-    print(output_image[0])
-    plt.imshow(output_image[0])
-    plt.title("colorized")
-    plt.savefig('testimage2.jpg')
-    #cv2.imwrite('testimage1.jpg',output_image[0])
-    # Image.fromarray(output_image[0]).save('testimage.jpg')
-    return 'f'
+    single_image = np.clip(output_image, 0.0,1.0).reshape(160,160,3)
+    plt.imshow(single_image)
+    plt.axis('off')
+    pred_count+=1
+    plt.savefig(f'static/predictions/prediction{pred_count}.jpg')
+    return 'success'
 
-    
-    
-        
-
+@app.route('/api/downloads/',methods=['GET'])
+def download():
+    path = f'static/predictions/prediction{pred_count}.jpg'
+    return send_file(path, attachment_filename=f'predcited.jpg')
 
 @app.route('/')
 def render_html():
