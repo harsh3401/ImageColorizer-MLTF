@@ -1,16 +1,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>IMAGE COLORIZER </title>
-    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">      
-      <!-- Google Fonts -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>IMAGE COLORIZER </title>
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
@@ -21,81 +21,81 @@
 </head>
 
 <body>
-    <section id="title">
-        <div class="container-fluid">
-          <!-- Nav Bar -->
-          <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="">bwTOcolor</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
-             
-              </ul>
-            </div>
-          </nav>
-          <!-- Title -->
-          <div class="row">
-            <div class="col-lg-6 ">
-              <h1>Convert old black and white pictures into Colour pictures.</h1>
-            </div>
-            <div class="col-lg-6 ">
-              <img src="{{ url_for('static',filename='images/colorization-example.png') }}" alt="iphone-mockup">
-            </div>
-          </div>
+  <section id="title">
+    <div class="container-fluid">
+      <!-- Nav Bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="">bwTOcolor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+
+          </ul>
         </div>
-      </section>
-  
-    
-
-
-
-    
-    
-      <!-- Features -->
-    
-      
-      <!-- convert -->
-    
-      <section id="pricing">
-        <h2>Convert old black and white image to coloured image</h2>
-        <p>To convert import your old black & white picture.</p>
-      
-        <div class="container">
-            <div id="content" style="margin-top:2em">{% block content %}{% endblock %}</div>
+      </nav>
+      <!-- Title -->
+      <div class="row">
+        <div class="col-lg-6 ">
+          <h1>Convert old black and white pictures into Colour pictures.</h1>
         </div>
-    
-    
-      </section>
-    
-    
-      <!-- Problem Statement -->
-    
-      <section id="cta">
-    
-        <h3>Problem Statement</h3>
-        <p>Image Colorization
-          Image colorization using different softwares require large amount of human effort, time and skill.But special type of deep learning architecture called autoencoder has made this task quiet easy. Automatic image colorization often involves the use of a class of convolutional neural networks (CNN) called autoencoders. These neural networks are able to distill the salient features of an image, and then regenerate the image based on these learned features.So we will be implementing this structure via tensorflow and colorizing black and white images.</p>
-      </section>
-    
+        <div class="col-lg-6 ">
+          <img src="{{ url_for('static',filename='images/colorization-example.png') }}" alt="iphone-mockup">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <!-- Features -->
+
+
+  <!-- convert -->
+
+  <section id="pricing">
+    <h2>Convert old black and white image to coloured image</h2>
+    <p>To convert import your old black & white picture.</p>
+
+    <div class="container">
+      <div id="content" style="margin-top:2em">{% block content %}{% endblock %}</div>
+    </div>
+
+
+  </section>
+
+
+  <!-- Problem Statement -->
+
+  <section id="cta">
+
+    <h3>Problem Statement</h3>
+    <p>
+      Image colorization using different softwares require large amount of human effort, time and skill.But special type
+      of deep learning architecture called autoencoder has made this task quiet easy. Automatic image colorization often
+      involves the use of a class of convolutional neural networks (CNN) called autoencoders. These neural networks are
+      able to distill the salient features of an image, and then regenerate the image based on these learned features.So
+      we will be implementing this structure via tensorflow and colorizing black and white images.</p>
+  </section>
+
 
 
 
 </body>
 
 <footer id="footer">
-        <p class="ficons"><i class="fab fa-twitter"></i></p>
-        <p class="ficons"><i class="fab fa-facebook-f"></i></p>
-        <p class="ficons"><i class="fab fa-instagram"></i></p>
-        <p class="ficons"><i class="fas fa-envelope"></i></p>
-        <p>© Copyright 2022 bwTOcolor<br />Isha Jain, Ishan Kulkarni, Harsh Jain, Samved Joshi.</p>
-    <script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>    
+  <p class="ficons"><i class="fab fa-twitter"></i></p>
+  <p class="ficons"><i class="fab fa-facebook-f"></i></p>
+  <p class="ficons"><i class="fab fa-instagram"></i></p>
+  <p class="ficons"><i class="fas fa-envelope"></i></p>
+  <p>© Copyright 2022 bwTOcolor<br />Isha Jain, Ishan Kulkarni, Harsh Jain, Samved Joshi.</p>
+  <script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>
 </footer>
 
 </html>
-
-
-
-

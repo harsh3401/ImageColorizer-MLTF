@@ -23,14 +23,11 @@
     <div class="loader" style="display:none;"></div>
 
 
-<a class="btn btn-primary btn-xl my-2 download" id="download"  style="display:none;" href="{{ url_for('.download') }}" download>Download</a>
+    <a class="btn btn-primary btn-xl my-2 download" id="download" style="display:none;"
+        href="{{ url_for('.download') }}" download>Download</a>
 
 </div>
-<a class="btn btn-primary btn-xl my-2 result " id="result" href="{{ url_for('.download') }}" target="_blank" >Preview Image</a>
-<a class="btn btn-primary btn-xl my-2 result " id="upload" href="{{ url_for('.render_html') }}" >Upload another image</a>
+<a class="btn btn-primary btn-xl my-2 result " id="result" href="{{ url_for('.download') }}" target="_blank">Preview
+    Image</a>
+<a class="btn btn-primary btn-xl my-2 result " id="upload" href="{{ url_for('.render_html') }}">Upload another image</a>
 {% endblock %}
-
-
-
-
-    

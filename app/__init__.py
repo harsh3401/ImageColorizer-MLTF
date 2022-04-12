@@ -10,10 +10,10 @@ import gdown
 url = 'https://drive.google.com/uc?id=1sqLURQg3HrJbgQ6DmHnI32W8-moOQLKJ'
 model_path = f'{__path__[0]}/models/colorize.h5'
 gdown.download(url, model_path, quiet=False)
+
 app = Flask(__name__)
 print(__path__)
 model = tensorflow.keras.models.load_model(model_path)
-pred_count=0
 
 
 @app.route('/api/colorization',methods=['POST'])
@@ -31,7 +31,7 @@ def colorize_image():
     plt.imshow(single_image)
     plt.axis('off')
     pred_count+=1
-    plt.savefig(f'{__path__[0]}/static/predictions/prediction{pred_count}.jpg')
+    plt.savefig(f'{__path__[0]}/static/predictions/prediction.jpg')
     return 'success'
 
 @app.route('/api/downloads/',methods=['GET'])
