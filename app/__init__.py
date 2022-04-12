@@ -36,7 +36,7 @@ def colorize_image():
 
 @app.route('/api/downloads/',methods=['GET'])
 def download():
-    path = f'{__path__[0]}/static/predictions/prediction{pred_count}.jpg'
+    path = f'{__path__[0]}/static/predictions/prediction.jpg'
     return send_file(path, attachment_filename=f'predcited.jpg')
 
 @app.route('/')
